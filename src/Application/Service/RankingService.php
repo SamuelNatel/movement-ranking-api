@@ -28,7 +28,7 @@ class RankingService
         }
 
         if ($movementName === 'Unknown Movement') {
-            throw new DomainException('Movimento não encontrado', 404);
+            throw new DomainException('Movimento não encontrado!', 404);
         }
 
         $rankingDTOs = [];
