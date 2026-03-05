@@ -5,16 +5,19 @@ declare(strict_types=1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
+use App\Application\Service\RankingService;
 use App\Core\Router;
 use App\Config\Database;
-use App\Infrastructure\Repository\RankingRepository;
-use App\Application\Service\RankingService;
-use App\Presentation\Controller\RankingController;
 use App\Http\Response;
+use App\Infrastructure\Repository\RankingRepository;
+use App\Middleware\AuthMiddleware;
+use App\Presentation\Controller\RankingController;
 
 // Carrega variáveis de ambiente
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
+
+AuthMiddleware::handle();
 
 // Handler global de exceções
 set_exception_handler(function (\Throwable $e) {
