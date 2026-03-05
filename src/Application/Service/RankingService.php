@@ -24,7 +24,7 @@ class RankingService
             $ranking = $this->repository->findRankingByMovementName($movementName);
             $movementName = $ranking[0]['movement_name'] ?? $this->repository->findMovementNameByName($movementName);
         } else {
-            throw new DomainException('Parâmetro do movimento inválido', 400);
+            throw new DomainException('Parâmetro do movimento inválido!', 400);
         }
 
         if ($movementName === 'Unknown Movement') {
