@@ -217,7 +217,7 @@ RESPONSE 200 (OK)
 ```json
 RESPONSE 400 (Bad Request)
 {
-  "error": "Parâmetro do movimento inválido."
+  "error": "Parâmetro do movimento inválido!"
 }
 ```
 
