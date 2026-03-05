@@ -114,9 +114,35 @@ Authorization: Bearer base64(API_AUTH_USER:API_AUTH_PASSWORD)
 
 Gerando o token:
 
+Para gerar o token de autenticação, siga os passos abaixo:
+
+1. Acesse o site: https://www.base64encode.org/
+2. No campo de texto, digite no seguinte formato:
+
 ```
-echo -n "usuario:senha" | base64
+usuario:senha
 ```
+
+Exemplo:
+
+```
+admin:123456
+```
+
+3. Clique em **Encode**.
+4. Copie o valor gerado — esse será seu token Base64.
+
+---
+
+### 📌 Utilizando o token
+
+Após gerar o Base64, envie no header da requisição:
+
+```
+Authorization: Basic SEU_TOKEN_AQUI
+```
+
+Substitua `SEU_TOKEN_AQUI` pelo valor retornado no site.
 
 ---
 ## 📡 Documentação API
