@@ -165,12 +165,22 @@ RESPONSE 200 (OK)
   "movement": "Back Squat",
   "ranking": [
     {
-      "user": "Carlos",
-      "weight": 240
+      "position": 1,
+      "user": "Joao",
+      "personalRecord": 130,
+      "date": "2021-01-03 00:00:00"
     },
     {
-      "user": "Ana",
-      "weight": 220
+      "position": 1,
+      "user": "Jose",
+      "personalRecord": 130,
+      "date": "2021-01-03 00:00:00"
+    },
+    {
+      "position": 3,
+      "user": "Paulo",
+      "personalRecord": 125,
+      "date": "2021-01-03 00:00:00"
     }
   ]
 }
