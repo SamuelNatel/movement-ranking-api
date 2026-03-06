@@ -85,13 +85,16 @@ composer install
 Crie o arquivo `.env` na raiz do projeto:
 
 ```
-DB_HOST=localhost
-DB_NAME=movement
-DB_USER=root
-DB_PASS=
+APP_ENV=local
 
-API_AUTH_USER=usuario
-API_AUTH_PASSWORD=senha
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=NOME DO BANCO DE DADOS
+DB_USERNAME=USUÁRIO DO BANCO DE DADOS
+DB_PASSWORD=SENHA DO BANCO DE DADOS
+
+API_AUTH_USER=USUARIO AUTENTICAÇÃO
+API_AUTH_PASSWORD=SENHA AUTENTICAÇÃO
 ```
 
 ### 4️⃣ Servidor HTTP
