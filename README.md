@@ -142,7 +142,7 @@ admin:123456
 Após gerar o Base64, envie no header da requisição:
 
 ```
-Authorization: Basic SEU_TOKEN_AQUI
+Authorization: Bearer SEU_TOKEN_AQUI
 ```
 
 Substitua `SEU_TOKEN_AQUI` pelo valor retornado no site.
