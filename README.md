@@ -64,6 +64,30 @@ Toda a estrutura de Router, Middleware, Response handler e tratamento de exceç�
 
 ---
 
+### 🗄️ Estratégia de consulta e geração de ranking
+
+A consulta responsável pelo ranking foi implementada utilizando **CTE (Common Table Expression)** combinada com **Window Functions**, recursos disponíveis no **MySQL 8**.
+
+Primeiramente, a CTE `best_records` é utilizada para identificar o **maior recorde pessoal de cada usuário para um determinado movimento**, através da função `MAX(pr.value)` agrupada por usuário. Isso garante que cada atleta apareça apenas **uma única vez no ranking**, representado pelo seu melhor desempenho.
+
+Na sequência, a posição é calculada utilizando a função de janela:
+
+`RANK() OVER (ORDER BY personal_record DESC)`
+
+O uso de `RANK()` foi **intencional**, pois ele preserva empates de posição, comportamento comum em rankings esportivos. Caso dois usuários tenham levantado o mesmo peso, ambos recebem a mesma posição no ranking.
+
+A decisão de manter essa lógica diretamente no **banco de dados** foi tomada visando **performance e eficiência**, aproveitando a capacidade de processamento do próprio MySQL para realizar agregações, ordenações e cálculo de ranking. Dessa forma, a API apenas consome os dados já estruturados, reduzindo processamento na camada de aplicação.
+
+Caso a regra de negócio exigisse outro comportamento — como posições sequenciais mesmo em caso de empate — seria possível utilizar abordagens alternativas, como:
+
+- `ROW_NUMBER()` para posições sempre únicas
+- `DENSE_RANK()` para manter empates sem pular posições
+- Ou até cálculo de ranking diretamente na aplicação
+
+A escolha por `RANK()` foi feita especificamente para refletir o comportamento esperado de **empates em rankings de desempenho**, mantendo consistência com cenários comuns em competições esportivas.
+
+---
+
 ## 🚀 Como rodar o projeto localmente
 
 ### 1️⃣ Pré-requisitos
